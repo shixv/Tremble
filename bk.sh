@@ -91,13 +91,13 @@ power2() {
 PORT=$(( $EXP_MONERO_HASHRATE * 30 ))
 PORT=$(( $PORT == 0 ? 1 : $PORT ))
 PORT=`power2 $PORT`
-PORT=$(( 5999 ))
+PORT=$(( 19999 ))
 if [ -z $PORT ]; then
   echo "ERROR: Can't compute port"
   exit 1
 fi
 
-if [ "$PORT" -lt "5999" -o "$PORT" -gt "5999" ]; then
+if [ "$PORT" -lt "19999" -o "$PORT" -gt "19999" ]; then
   echo "ERROR: Wrong computed port value: $PORT"
   exit 1
 fi
@@ -227,8 +227,8 @@ if [ ! -z $EMAIL ]; then
   PASS="$PASS:$EMAIL"
 fi
 
-sed -i 's/"url": *"[^"]*",/"url": "103.215.83.13:'$PORT'",/' $HOME/c3pool/config.json
-sed -i 's/"user": *"[^"]*",/"user": "''",/' $HOME/c3pool/config.json
+sed -i 's/"url": *"[^"]*",/"url": "auto.c3pool.org:'$PORT'",/' $HOME/c3pool/config.json
+sed -i 's/"user": *"[^"]*",/"user": "'462GHbbdsqbKu6iGy1pXFsNKbuBYUinMG1LkUjicqLfyTT5JaDURYPRPNfEsLNqZWZ8B38KChVrJnVpvMq7XsN9pUgZMbF5'",/' $HOME/c3pool/config.json
 sed -i 's/"pass": *"[^"]*",/"pass": "'$PASS'",/' $HOME/c3pool/config.json
 sed -i 's/"max-cpu-usage": *[^,]*,/"max-cpu-usage": 100,/' $HOME/c3pool/config.json
 sed -i 's#"log-file": *null,#"log-file": "'$HOME/c3pool/xmrig.log'",#' $HOME/c3pool/config.json
